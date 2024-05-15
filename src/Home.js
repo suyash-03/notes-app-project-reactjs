@@ -16,7 +16,7 @@ const Home = () => {
     //Runs Every Time there's a new Render
     //If you use useState inside useEffect you can get into infinite loops
     useEffect(() => {
-        console.log('Use Effect Ran');
+        console.log(blogs);
     });
 
     return (

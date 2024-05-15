@@ -13,16 +13,25 @@ const Home = () => {
         setBlogs(newBlogs);
     }
 
-    //Runs Every Time there's a new Render
-    //If you use useState inside useEffect you can get into infinite loops
+    const [name, setName] = useState('mario');
+
+    /*
+    useEffect hook runs Every Time there's a new render
+    If you use useState inside useEffect you can get inside an infinite loop
+
+    Passing an empty dependency array makes sure the useEffect hooks runs only once at startup
+    */
+
+
     useEffect(() => {
-        console.log(blogs);
-    });
+        console.log('useEffect Ran');
+    }, [name]);
 
     return (
         <div className="home">
             <BlogList blogs={blogs} title = "All Blogs !" handleDelete = {handleDelete}/>
-
+            <button onClick={() => setName('luigi')}>Change Name</button>
+            <p>{name}</p>
         </div>
     );
 }
